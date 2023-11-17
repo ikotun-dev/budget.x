@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily :{
+        'pop' : ['Poppins', 'sans-serif'],
+        'philosopher' : ['Philosopher', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
+      
       spacing: {
         '17' : '4.43rem',
         '25' : '8.22rem',

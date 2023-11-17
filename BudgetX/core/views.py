@@ -7,5 +7,8 @@ def index(request) :
 def signup(request) : 
     return render(request, 'signup.html')
 
-def dashboard(request) : 
-    return render(request, 'dashboard.html')
+def add_expense(request) : 
+    return render(request, 'add_expense.html')
+
+def add_budget(request) : 
+    return render(request, 'add_budget.html')

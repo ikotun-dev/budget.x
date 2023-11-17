@@ -1,0 +1,65 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+
+{% comment %} {% block content %}
+<div class="h-24 py-4">
+
+  <h1 class="text-3xl text-blue-950 text-center font-extrabold font-serif">Budgetti</h1>
+</div>
+  <div class="h-1 py-4 ">
+    <form> 
+        <label>
+
+    </form>
+    
+  </div>
+
+    
+{% endblock content %} {% endcomment %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center h-screen">
+  <div class="mb-4">
+    <h1 class="text-3xl text-blue-950 font-extrabold font-sans">BudgetX</h1>
+  </div>
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-64 w-96 border border-blue-900">
+    <form>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Username
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="username" type="text" placeholder="Enter your username">
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+          Password
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="password" type="password" placeholder="********">
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button">
+          Sign In
+        </button>
+        <a class="inline-block align-baseline font-bold text-xs text-blue-500 hover:text-blue-800"
+          href="{% url 'signup' %}">
+          
+          <button
+          class="bg-green-500 hover:bg-green-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button">
+          Sign Up Instead?
+        </button>
+
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}

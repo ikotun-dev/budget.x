@@ -1,0 +1,94 @@
+{% extends "base.html" %} {% block content %}
+<div class="flex flex-col items-center h-screen">
+  <div class="flex h-12 lg:h-24 bg-white pt-4 border-b-2">
+    <h2
+      class="text-center text-lg lg:text-3xl lg:text-left lg:ml-12 lg:mt-5 font-montserrat font-extrabold text-blue-900 w-36 h-10 px-2 rounded-md border border-blue-950"
+    >
+      BudgetX
+    </h2>
+  </div>
+  <div>
+    <nav
+      class="bg-white border border-blue-950 text-white h-15 md:w-48 lg:w-screen pt-2"
+    >
+      <div class="ml-6 mb-2 flex py-1 justify-between">
+        <ul class="">
+          <a href="{% url 'add-expense' %}">
+            <div
+              class="cursor-pointer flex items-center w-56 border-blue-950 hover:border-blue-950 hover:rounded-lg px-9 py-2 border-2 rounded-lg hover:bg-gray-300"
+            >
+              <li
+                class="text-center ml-6 font-montserrat font-bold text-blue-950"
+              >
+                Add Expense
+              </li>
+            </div></a
+          >
+        </ul>
+        <ul>
+          <a href="{% url 'add-budget' %}">
+            <div
+              class="cursor-pointer flex items-center w-56 border-blue-950 hover:border-blue-950 hover:rounded-lg px-9 py-2 border-2 rounded-lg hover:bg-gray-300"
+            >
+              <li
+                class="ml-6 text-center font-montserrat font-bold text-blue-950"
+              >
+                Add Budget
+              </li>
+            </div>
+          </a>
+        </ul>
+        <ul>
+          <div
+            class="mr-6 cursor-pointer flex items-center w-48 border-blue-950 hover:border-blue-950 hover:rounded-lg px-9 py-2 border-2 rounded-lg hover:bg-gray-300"
+          >
+            <li
+              class="ml-10 text-center font-montserrat font-bold text-blue-950"
+            >
+              <a>History</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div>
+    <div class="flex flex-col items-center justify-center mt-12">
+      <div class="bg-white border border-blue-950 shadow-md rounded p-8 w-100">
+        <h1 class="text-2xl text-blue-950 font-extrabold mb-6">History</h1>
+        <div
+          class="mt-2 h-16 pt-4 px-12 w-120 border-2 border-gray-950 rounded-xs hover:border-gray-600 shadow-md flex justify-between"
+        >
+          <h2 class="font-lato font-bold">category(budget/expense)</h2>
+          <h2 class="font-lato font-extrabold text-green-950 mr-12 w-12">
+            status
+          </h2>
+
+          <h2 class="font-lato font-extrabold text-green-950 mr-10">
+            amount (NGN)
+          </h2>
+        </div>
+        <!-- Expense Form -->
+      
+
+      <div
+        class="mt-2 h-16 pt-4 px-12 w-120 border-2 border-gray-950 rounded-xs hover:border-gray-600 shadow-md flex justify-between"
+      >
+        <h2 class="font-lato font-bold">{{result}}</h2>
+        <h2 class="font-lato font-extrabold text-green-950 mr-12 w-12">
+          status
+        </h2>
+
+        <h2 class="font-lato font-extrabold text-green-950 mr-10">
+          amount (NGN)
+        </h2>
+
+    </div>
+        <!-- Expense Form -->
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

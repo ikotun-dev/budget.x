@@ -65,8 +65,13 @@ def add_expense(request) :
         description = request.POST.get('description')
         new_expense = models.Expense(amount=amount, category=category, description=description, family_id=user.id)
         new_expense.save()
+        context = { 
+                "success" : "Expense successfully added"
+            }
+        
         print("expense saved successfully")
         print(amount + " " + category + " " + description)
+        return render (request, 'add_expense.html', context)
 
 
     return render(request, 'add_expense.html')
@@ -74,3 +79,7 @@ def add_expense(request) :
 def add_budget(request) : 
 
     return render(request, 'add_budget.html')
+
+def history(request) : 
+
+    return render(request, 'history.html')

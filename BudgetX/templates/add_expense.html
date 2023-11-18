@@ -13,16 +13,17 @@
     >
       <div class="ml-6 mb-2 flex py-1 justify-between">
         <ul class="">
-            <a href="{% url 'add-expense' %}">
-          <div
-            class="cursor-pointer flex items-center w-56 border-blue-950 hover:border-blue-950 hover:rounded-lg px-9 py-2 border-2 rounded-lg hover:bg-gray-300"
-          >
-            <li
-              class="text-center ml-6 font-montserrat font-bold text-blue-950"
+          <a href="{% url 'add-expense' %}">
+            <div
+              class="cursor-pointer flex items-center w-56 border-blue-950 hover:border-blue-950 hover:rounded-lg px-9 py-2 border-2 rounded-lg hover:bg-gray-300"
             >
-            Add Expense
-            </li>
-          </div></a>
+              <li
+                class="text-center ml-6 font-montserrat font-bold text-blue-950"
+              >
+                Add Expense
+              </li>
+            </div></a
+          >
         </ul>
         <ul>
           <a href="{% url 'add-budget' %}">
@@ -38,15 +39,19 @@
           </a>
         </ul>
         <ul>
-          <div
-            class="mr-6 cursor-pointer flex items-center w-48 border-blue-950 hover:border-blue-950 hover:rounded-lg px-9 py-2 border-2 rounded-lg hover:bg-gray-300"
-          >
-            <li
-              class="ml-10 text-center font-montserrat font-bold text-blue-950"
+          <a href="{% url 'history' %}">
+            <div
+              class="mr-6 cursor-pointer flex items-center w-48 border-blue-950 hover:border-blue-950 hover:rounded-lg px-9 py-2 border-2 rounded-lg hover:bg-gray-300"
             >
-              <a>History</a>
-            </li>
-          </div>
+              <li
+                class="ml-10 text-center font-montserrat font-bold text-blue-950"
+              >
+                History
+              </li>
+
+              
+            </div>
+          </a>
         </ul>
       </div>
     </nav>
@@ -61,7 +66,10 @@
 
         <!-- Expense Form -->
         <form method="post">
-            {% csrf_token %}
+          {% csrf_token %}
+          <p class="text-montserrat font-extrabold mb-2" style="color: green">
+            {{ success }}
+          </p>
           <div class="mb-4">
             <label for="amount" class="block text-sm font-medium text-gray-600"
               >Amount</label

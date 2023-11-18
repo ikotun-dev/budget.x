@@ -56,3 +56,27 @@ MariaDB [budgetX]> ALTER TABLE expense ADD (
 Query OK, 0 rows affected (0.025 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
+MariaDB [budgetX]> DESCRIBE expense;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| id          | int(11)      | NO   | PRI | NULL    |       |
+| amount      | int(11)      | YES  |     | NULL    |       |
+| category    | varchar(255) | YES  |     | NULL    |       |
+| description | varchar(255) | YES  |     | NULL    |       |
+| family_id   | int(11)      | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+5 rows in set (0.006 sec)
+
+MariaDB [budgetX]> DESCRIBE family;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| id        | int(11)      | NO   | PRI | NULL    |       |
+| name      | varchar(255) | YES  |     | NULL    |       |
+| username  | varchar(255) | YES  |     | NULL    |       |
+| email     | varchar(255) | YES  |     | NULL    |       |
+| family_no | int(11)      | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.007 sec)
+

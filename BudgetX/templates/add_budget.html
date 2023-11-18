@@ -13,26 +13,30 @@
     >
       <div class="ml-6 mb-2 flex py-1 justify-between">
         <ul class="">
+            <a href="{% url 'add-expense' %}">
           <div
             class="cursor-pointer flex items-center w-56 border-blue-950 hover:border-blue-950 hover:rounded-lg px-9 py-2 border-2 rounded-lg hover:bg-gray-300"
           >
             <li
               class="text-center ml-6 font-montserrat font-bold text-blue-950"
             >
-              <a>Add Expense</a>
+             Add Expense
             </li>
           </div>
+        </a>
         </ul>
         <ul>
+            <a href="{% url 'add-budget'%}">
           <div
             class="cursor-pointer flex items-center w-56 border-blue-950 hover:border-blue-950 hover:rounded-lg px-9 py-2 border-2 rounded-lg hover:bg-gray-300"
           >
             <li
               class="ml-6 text-center font-montserrat font-bold text-blue-950"
             >
-              <a>Add Budget</a>
+            Add Budget
             </li>
           </div>
+        </a>
         </ul>
         <ul>
           <div
@@ -82,6 +86,30 @@
               type="text"
               id="limit"
               name="limit"
+              class="mt-1 p-2 border border-blue-950 w-full rounded-md"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="limit" class="block text-sm font-medium text-gray-600"
+              >Start Date </label
+            >
+            <input
+              type="date"
+              id="start_date"
+              name="start_date"
+              class="mt-1 p-2 border border-blue-950 w-full rounded-md"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="limit" class="block text-sm font-medium text-gray-600"
+              >End Date </label
+            >
+            <input
+              type="date"
+              id="end_date"
+              name="end_date"
               class="mt-1 p-2 border border-blue-950 w-full rounded-md"
             />
           </div>

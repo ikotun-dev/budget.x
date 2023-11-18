@@ -1,0 +1,58 @@
+MariaDB [restaurant_b]> CREATE DATABASE budgetX;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [restaurant_b]> USE budgetX;
+Database changed
+MariaDB [budgetX]> CREATE TABLE family ( 
+    -> id INT PRIMARY KEY,
+    -> family_name VAVRCHAR(255),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(255),' at line 3
+MariaDB [budgetX]> CREATE TABLE family (
+    -> id INT PRIMARY KEY,
+    -> name VARCHAR(255),
+    -> username VARCHAR(255),
+    -> email VARCHAR(255),
+    -> family_no INT);
+Query OK, 0 rows affected (0.041 sec)
+
+MariaDB [budgetX]> CREATE TABLE budget ( 
+    -> id INT PRIMARY KEY,
+    -> category VARCHAR(255),
+    -> start_date DATE,
+    -> end_date DATE,
+    -> budget_amount INT,
+    -> budget_amount INT);
+ERROR 1060 (42S21): Duplicate column name 'budget_amount'
+MariaDB [budgetX]> CREATE TABLE budget (  id INT PRIMARY KEY, category VARCHAR(255), start_date DATE, end_date DATE, budget_amount INT, family_id INT);
+Query OK, 0 rows affected (0.010 sec)
+
+MariaDB [budgetX]> CREATE TABLE expense ( 
+    -> id INT PRIMARY KEY;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2
+MariaDB [budgetX]> CREATE TABLE expense (  id INT PRIMARY KEY,
+    -> amount INT,
+    -> category VARCHAR(255),
+    -> description VAVRCHAR(255)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(255)
+)' at line 4
+MariaDB [budgetX]> CREATE TABLE expense (  id INT PRIMARY KEY, amount INT, category VARCHAR(255), description VARCHAR(255) );
+Query OK, 0 rows affected (0.010 sec)
+
+MariaDB [budgetX]> DESCRIBE expense;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| id          | int(11)      | NO   | PRI | NULL    |       |
+| amount      | int(11)      | YES  |     | NULL    |       |
+| category    | varchar(255) | YES  |     | NULL    |       |
+| description | varchar(255) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+4 rows in set (0.005 sec)
+
+MariaDB [budgetX]> ALTER TABLE expense ADD ( 
+    -> family_id INT );
+Query OK, 0 rows affected (0.025 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+

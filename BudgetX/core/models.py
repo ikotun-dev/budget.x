@@ -13,11 +13,11 @@ class Family(models.Model) :
         db_table = 'family'
 
 class Expense(models.Model)  : 
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     amount = models.IntegerField(default=0)
     category = models.CharField(max_length=255, null=True)
     description = models.CharField(max_length=255, null=True)
-    family_id = models.IntegerField(default=0)
+    family = models.ForeignKey(Family, null=True, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'expense'

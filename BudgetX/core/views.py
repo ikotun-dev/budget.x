@@ -56,8 +56,19 @@ def signup(request) :
 
 def add_expense(request) : 
     username = request.session.get('username')
+    user = models.Family.objects.get(username=username)
     print("im now in expense page")
     print("logged in user is : " + " " + username)
+    if request.method == "POST" : 
+        amount = request.POST.get('amount')
+        category = request.POST.get('category')
+        description = request.POST.get('description')
+        new_expense = models.Expense(amount=amount, category=category, description=description, family_id=user.id)
+        new_expense.save()
+        print("expense saved successfully")
+        print(amount + " " + category + " " + description)
+
+
     return render(request, 'add_expense.html')
 
 def add_budget(request) : 

@@ -1,0 +1,67 @@
+MariaDB [budgetX]> SHOW TABLES;
++----------------------------+
+| Tables_in_budgetX          |
++----------------------------+
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| budget                     |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
+| expense                    |
+| family                     |
++----------------------------+
+13 rows in set (0.002 sec)
+
+MariaDB [budgetX]> DESCRIBE expense;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| id          | int(11)      | NO   | PRI | NULL    |       |
+| amount      | int(11)      | YES  |     | NULL    |       |
+| category    | varchar(255) | YES  |     | NULL    |       |
+| description | varchar(255) | YES  |     | NULL    |       |
+| family_id   | int(11)      | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+5 rows in set (0.005 sec)
+
+MariaDB [budgetX]> ALTER TABLE family ( 
+    -> FOREIGN KEY (family_id) REFERENCES Family(id) ON DELETE CASCADE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '( 
+FOREIGN KEY (family_id) REFERENCES Family(id) ON DELETE CASCADE' at line 1
+MariaDB [budgetX]> ALTER TABLE expense ( FOREIGN KEY (family_id) REFERENCES Family (id) ON DELETE CASCADE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '( FOREIGN KEY (family_id) REFERENCES Family (id) ON DELETE CASCADE' at line 1
+MariaDB [budgetX]> ALTER TABLE expense ( FOREIGN KEY (family_id) REFERENCES Family (id) ON DELETE CASCADE);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '( FOREIGN KEY (family_id) REFERENCES Family (id) ON DELETE CASCADE)' at line 1
+MariaDB [budgetX]> ALTER TABLE expense ( FOREIGN KEY (family_id) REFERENCES family (id) ON DELETE CASCADE);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '( FOREIGN KEY (family_id) REFERENCES family (id) ON DELETE CASCADE)' at line 1
+MariaDB [budgetX]> 
+MariaDB [budgetX]> 
+MariaDB [budgetX]> 
+MariaDB [budgetX]> ALTER TABLE expense
+    -> ADD CONSTRAINT fk_family_id
+    -> FOREIGN KEY (family_id) REFERENCES family (id) ON DELETE CASCADE;
+Query OK, 0 rows affected (0.036 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [budgetX]> DESCRIBE expense;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| id          | int(11)      | NO   | PRI | NULL    |       |
+| amount      | int(11)      | YES  |     | NULL    |       |
+| category    | varchar(255) | YES  |     | NULL    |       |
+| description | varchar(255) | YES  |     | NULL    |       |
+| family_id   | int(11)      | YES  | MUL | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+5 rows in set (0.009 sec)
+
+MariaDB [budgetX]> ALTER TABLE expense MODIFY id INT AUTO_INCREMENT;
+Query OK, 0 rows affected (0.038 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+

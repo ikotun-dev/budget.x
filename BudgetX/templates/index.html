@@ -27,7 +27,8 @@
   <div class="bg-white shadow-md rounded px-8 pt-10 pb-8 mb-4 h-72  w-99 border border-blue-900">
     <form method="post">
         {% csrf_token %}
-        {{ error }}
+        <p class="text-montserrat font-semibold" style="color: red;">{{ error }}</p>
+
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
           Username

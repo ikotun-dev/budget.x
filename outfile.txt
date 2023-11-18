@@ -98,3 +98,11 @@ MariaDB [budgetX]> DESCRIBE family;
 +-----------+--------------+------+-----+---------+-------+
 6 rows in set (0.008 sec)
 
+MariaDB [budgetX]> ALTER TABLE family ( 
+    -> MODIFY COLUMN id INT AUTO_INCREMENT);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '( 
+MODIFY COLUMN id INT AUTO_INCREMENT)' at line 1
+MariaDB [budgetX]> ALTER TABLE family (  MODIFY  id INT AUTO_INCREMENT);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(  MODIFY  id INT AUTO_INCREMENT)' at line 1
+MariaDB [budgetX]> Ctrl-C -- exit!
+Aborted

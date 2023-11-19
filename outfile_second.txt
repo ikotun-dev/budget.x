@@ -85,3 +85,20 @@ MariaDB [budgetX]> SHOW TABLES;
 +----------------------------+
 13 rows in set (0.007 sec)
 
+MariaDB [budgetX]> DESCRIBE budget;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| id            | int(11)      | NO   | PRI | NULL    |       |
+| category      | varchar(255) | YES  |     | NULL    |       |
+| start_date    | date         | YES  |     | NULL    |       |
+| end_date      | date         | YES  |     | NULL    |       |
+| budget_amount | int(11)      | YES  |     | NULL    |       |
+| family_id     | int(11)      | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+6 rows in set (0.025 sec)
+
+MariaDB [budgetX]> ALTER TABLE budget MODIFY id INT AUTO_INCREMENT;
+Query OK, 0 rows affected (0.060 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+

@@ -22,3 +22,16 @@ class Expense(models.Model)  :
     class Meta:
         db_table = 'expense'
 
+class Budget(models.Model)  : 
+    id = models.AutoField(primary_key=True)
+    category = models.CharField(max_length=255, null=True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    budget_amount = models.IntegerField(null=True)
+    
+    # Foreign key relationship with Family model
+    family = models.ForeignKey(Family, on_delete=models.CASCADE, null=True)
+
+    class Meta:
+        db_table = 'budget'
+

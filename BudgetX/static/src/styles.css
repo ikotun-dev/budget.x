@@ -633,6 +633,34 @@ video {
   margin-top: 0.5rem;
 }
 
+.mr-36 {
+  margin-right: 9rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mr-24 {
+  margin-right: 6rem;
+}
+
+.mr-48 {
+  margin-right: 12rem;
+}
+
+.ml-24 {
+  margin-left: 6rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
 .block {
   display: block;
 }
@@ -703,6 +731,14 @@ video {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .cursor-pointer {
@@ -789,6 +825,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -862,6 +903,10 @@ video {
   padding-top: 1.5rem;
 }
 
+.pr-40 {
+  padding-right: 10rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -884,6 +929,14 @@ video {
 
 .font-serif {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.font-philosopher {
+  font-family: Philosopher, sans-serif;
+}
+
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .text-2xl {
@@ -909,6 +962,11 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -964,6 +1022,26 @@ video {
 .text-green-950 {
   --tw-text-opacity: 1;
   color: rgb(5 46 22 / var(--tw-text-opacity));
+}
+
+.text-purple-700 {
+  --tw-text-opacity: 1;
+  color: rgb(126 34 206 / var(--tw-text-opacity));
+}
+
+.text-yellow-200 {
+  --tw-text-opacity: 1;
+  color: rgb(254 240 138 / var(--tw-text-opacity));
+}
+
+.text-blue-300 {
+  --tw-text-opacity: 1;
+  color: rgb(147 197 253 / var(--tw-text-opacity));
+}
+
+.text-red-950 {
+  --tw-text-opacity: 1;
+  color: rgb(69 10 10 / var(--tw-text-opacity));
 }
 
 .shadow {

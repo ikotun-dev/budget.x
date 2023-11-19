@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<div class="flex flex-col items-center h-screen">
+<div class="flex flex-col items-center">
   <div class="flex h-12 lg:h-24 bg-white pt-4 border-b-2">
     <h2
       class="text-center text-lg lg:text-3xl lg:text-left lg:ml-12 lg:mt-5 font-montserrat font-extrabold text-blue-900 w-36 h-10 px-2 rounded-md border border-blue-950"
@@ -56,39 +56,100 @@
   <div>
     <div class="flex flex-col items-center justify-center mt-12">
       <div class="bg-white border border-blue-950 shadow-md rounded p-8 w-100">
-        <h1 class="text-2xl text-blue-950 font-extrabold mb-6">History</h1>
-        <div
-          class="mt-2 h-16 pt-4 px-12 w-120 border-2 border-gray-950 rounded-xs hover:border-gray-600 shadow-md flex justify-between"
-        >
-          <h2 class="font-lato font-bold">category(budget/expense)</h2>
-          <h2 class="font-lato font-extrabold text-green-950 mr-12 w-12">
-            status
-          </h2>
-
-          <h2 class="font-lato font-extrabold text-green-950 mr-10">
-            amount (NGN)
-          </h2>
+        <div class="flex justify-between">
+          <h1 class="text-2xl text-blue-950 font-extrabold mb-6">History</h1>
+          <div class="flex ">
+            <h1 class="text-lg text-blue-950 font-extrabold mb-6">Budget Track : </h1>
+            <h1 class="text-lg font-mono font-extrabold mb-2" style="color : red"> <i>{{ budget_track }}</i></h1>
+          </div>
         </div>
-        <!-- Expense Form -->
-      
 
-      <div
-        class="mt-2 h-16 pt-4 px-12 w-120 border-2 border-gray-950 rounded-xs hover:border-gray-600 shadow-md flex justify-between"
-      >
-        <h2 class="font-lato font-bold">{{result}}</h2>
-        <h2 class="font-lato font-extrabold text-green-950 mr-12 w-12">
-          status
-        </h2>
+        <div class="bg-white border shadow-md rounded p-8">
+          <h1 class="text-lg text-blue-950 font-extrabold mb-6">
+            Budgets Created
+          </h1>
+          <div
+            class="mt-2 h-16 pt-4 px-12 w-120 border-2 border-gray-950 rounded-xs hover:border-gray-600 shadow-md flex justify-between"
+          >
+            <h2 class="font-lato font-bold" style="color: green">category</h2>
+            <h2
+              class="font-lato font-extrabold text-green-950 mr-24 w-12"
+              style="color: green"
+            >
+              date
+            </h2>
 
-        <h2 class="font-lato font-extrabold text-green-950 mr-10">
-          amount (NGN)
-        </h2>
+            <h2
+              class="font-lato font-extrabold text-green-950 mr-20"
+              style="color: black"
+            >
+              amount (NGN)
+            </h2>
+          </div>
+          <div class="flex flex-col">
+            {% for budget in budgets %}
+            <div
+              class="mt-2 h-16 pt-4 px-12 w-120 pr-40 border-2 text-lg border-gray-950 rounded-xs hover:border-gray-600 shadow-md flex justify-between"
+            >
+              <h2 class="font-lato font-bold">{{budget.category}}</h2>
+              <h2 class="font-lato font-extrabold text-green-950  w-48">
+                {{budget.start_date}}
+              </h2>
 
-    </div>
-        <!-- Expense Form -->
+              <h2
+                class="font-lato font-extrabold text-green-950 mr-2"
+                style="color: green"
+              >
+                +{{budget.budget_amount}}
+              </h2>
+            </div>
+            {% endfor %}
+
+            <!-- Expense Form -->
+            <h1 class="text-lg text-blue-950 font-extrabold mb-2 mt-2">
+              Expenses
+            </h1>
+            <div
+              class="mt-2 h-16 pt-4 px-12 w-120 border-2 border-gray-950 rounded-xs hover:border-gray-600 shadow-md flex justify-between"
+            >
+              <h2 class="font-lato font-bold" style="color: green">category</h2>
+              <h2
+                class="font-lato font-extrabold text-green-950 mr-2 w-12"
+                style="color: green"
+              >
+                description
+              </h2>
+
+              <h2
+                class="font-lato font-extrabold text-green-950 mr-20"
+                style="color: green"
+              >
+                amount (NGN)
+              </h2>
+            </div>
+            {% for result in results%}
+            <div
+              class="mt-2 h-16 pt-4 px-12 w-120 border-2 border-gray-950 rounded-xs hover:border-gray-600 shadow-md flex justify-between"
+            >
+              <h2 class="font-lato font-bold w-64">{{result.category}}</h2>
+              <h2 class="font-lato font-extrabold text-green-950 mr-36 w-12">
+                {{result.description}}
+              </h2>
+
+              <h2
+                class="font-lato font-extrabold text-green-950 mr-36"
+                style="color: red"
+              >
+                -{{result.amount}}
+              </h2>
+            </div>
+            {% endfor %}
+            <!-- Expense Form -->
+          </div>
+        </div>
       </div>
     </div>
+
+    {% endblock content %}
   </div>
 </div>
-
-{% endblock content %}

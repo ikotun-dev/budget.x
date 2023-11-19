@@ -65,7 +65,13 @@
         </h1>
 
         <!-- Budget Form -->
-        <form>
+        <form method="post">
+            {% csrf_token %}
+
+            <p class="text-montserrat font-extrabold mb-2" style="color: green">
+                {{ success }}
+              </p>
+              
           <div class="mb-4">
             <label
               for="category"

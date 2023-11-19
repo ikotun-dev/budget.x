@@ -102,3 +102,6 @@ MariaDB [budgetX]> ALTER TABLE budget MODIFY id INT AUTO_INCREMENT;
 Query OK, 0 rows affected (0.060 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
+MariaDB [budgetX]> budgetX > budgetX.sql
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'budgetX > budgetX.sql' at line 1

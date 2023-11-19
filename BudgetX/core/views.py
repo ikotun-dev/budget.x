@@ -91,7 +91,7 @@ def add_budget(request) :
         new_budget = models.Budget(budget_amount=amount, category=category, start_date=start_date, end_date=end_date, family=user)
         new_budget.save()
         context = { 
-                "success" : "Expense successfully added"
+                "success" : "Budget successfully added"
             }
         return render(request, 'add_budget.html', context)
 

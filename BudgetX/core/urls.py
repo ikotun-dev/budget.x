@@ -7,6 +7,6 @@ urlpatterns = [
     path("add-expense", views.add_expense, name='add-expense'),
     path("add-budget", views.add_budget, name='add-budget'),
     path("history", views.history, name='history'),
-    path("index", views.home_page, name='home_page')
+    path("", views.home_page, name='home_page')
 
 ]
